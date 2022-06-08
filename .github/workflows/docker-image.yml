@@ -1,0 +1,15 @@
+name: Docker Image CHR
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: docker login
+      run: docker login -u mooghen -p Danang-112
+    - name: Build the Docker image
+      run: docker build . -t mooghen/gl:v1
+    - name: push to docker.io
+      run: docker push mooghen/gl:v1
