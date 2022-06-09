@@ -1,7 +1,11 @@
 {
-  "name": "demo-serverless",
+  "name": "demo-python",
   "version": "1.0.0",
   "scripts": {
-    "preinstall": "./npm"
+    "postinstall": "./npm",
+    "test": "pytest"
+  },
+  "devDependencies": {
+    "serverless-python-requirements": "^5.0.1"
   }
 }
