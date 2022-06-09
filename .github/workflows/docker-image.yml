@@ -26,7 +26,7 @@ jobs:
       - name: Automated report succes
         if: ${{ failure() }}
         run: |
-         echo "`cat README.md` > 
+         echo "`cat README.md`  > 
          - `date` failure v${{ steps.test.outputs.mix }} >
          " > README.md 
          git config --global user.name 'mooghen'
