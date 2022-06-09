@@ -3,14 +3,20 @@ on:
   push:
     branches: [ "main" ]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: docker login
-      run: docker login -u mooghen -p Danang-112
-    - run: docker pull lscr.io/linuxserver/webtop:ubuntu-mate
-    - name: Build the Docker image
-      run: docker build . -t mooghen/gl:g1v1
-    - name: push to docker.io
-      run: docker push mooghen/gl:g1v1
+    test-tunnel:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Start Tunnel
+              uses: LambdaTest/LambdaTest-tunnel-action@v1
+              id: tunnel
+              with:
+                user: mooghenchris@proton.me
+                accessKey: oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR
+                tunnelName: "testTunnel"
+            - run: npm test
+            - name: Export Tunnel Logs for debugging
+              uses: actions/upload-artifact@v2
+              with:
+                name: tunnel_logs
+                path: ${{ steps.tunnel.outputs.logFileName }}
