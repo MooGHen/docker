@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v3
       - run:  npm install -g selenium-side-runner
       - run: |
-         echo "`cat README.md` \
-         - `date` succes \
+         echo "`cat README.md` > 
+         - `date` succes >
          " > README.md 
          git config --global user.name 'Your Name'
          git config --global user.email 'your-username@users.noreply.github.com'
