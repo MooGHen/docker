@@ -15,7 +15,8 @@ jobs:
                 accessKey: oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR
                 tunnelName: "testTunnel"
             - run:  npm install -g selenium-side-runner
-            - run: selenium-side-runner -w 4 "yttest.side" --server https://mooghenchris:oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR@hub.lambdatest.com/wd/hub -c "browserName='chrome' version='72.0' platform='Windows 10'"
+            - run: selenium-side-runner -w 4 "yttest.side" --server  https://oauth-mooghenchris-1785a:9392d1d8-7ef0-4e76-a30b-7a6fe8f65bc6@ondemand.apac-southeast-1.saucelabs.com:443/wd/hub -c "browserName='chrome' version='72.0' platform='Windows 10'"
+                  # selenium-side-runner -w 4 "yttest.side" --server https://mooghenchris:oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR@hub.lambdatest.com/wd/hub -c "browserName='chrome' version='72.0' platform='Windows 10'"
             - name: Export Tunnel Logs for debugging
               uses: actions/upload-artifact@v2
               with:
