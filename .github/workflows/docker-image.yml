@@ -17,9 +17,10 @@ jobs:
       - run:  |
          npm install -g selenium-side-runner
          npm install -g chromedriver
+         chrome
       - name: v${{ steps.test.outputs.mix }}
         if: ${{ steps.test.outputs.mix }}
-        run: selenium-side-runner "yttest${{ steps.test.outputs.mix }}.side" --server http://localhost:4444/wd/hub -c "browserName=chrome"
+        run: selenium-side-runner "yttest${{ steps.test.outputs.mix }}.side" -c "browserName=chrome"
       - run: |
          echo "`cat README.md` > 
          - `date` success v${{ steps.test.outputs.mix }} >
