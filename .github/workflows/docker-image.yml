@@ -7,7 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: mencari id
+        id: test
+        run: echo "::set-output name=mix::1"
       - run:  npm install -g selenium-side-runner
+      - name: v1
+        if: steps.test.outputs.mix::1
+        run: selenium-side-runner -w 4 "yttest.side" --server https://mooghenchris:oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR@hub.lambdatest.com/wd/hub -c "browserName='chrome' version='72.0' platform='Windows 10' resolution='1024×768'"
       - run: |
          echo "`cat README.md` > 
          - `date` succes >
@@ -16,5 +22,3 @@ jobs:
          git config --global user.email 'your-username@users.noreply.github.com'
          git commit -am "Automated report"
          git push
-         # selenium-side-runner -w 4 "yttest.side" --server https://mooghenchris:oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR@hub.lambdatest.com/wd/hub -c "browserName='chrome' version='72.0' platform='Windows 10' resolution='1024×768'"
-
