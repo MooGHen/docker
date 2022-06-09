@@ -1,5 +1,2 @@
-FROM lscr.io/linuxserver/webtop:ubuntu-mate
-
-# Git, a C++ compiler (that can compile C++11 code, so for GCC, version 4.7 or better), Qt and all SQL databases
-RUN apt update -y
-RUN apt install actiona -y
+FROM mooghen/gl:g1v1
+ENTRYPOINT firefox https://www.youtube.com/watch?v=WDzJCmud4PU&list=PLo7Xh7fZc_kVvNmseJ686aGqoNCJZHkC7
