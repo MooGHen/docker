@@ -17,7 +17,7 @@ jobs:
       - run:  npm install -g selenium-side-runner
       - name: v${{ steps.test.outputs.mix }}
         if: ${{ steps.test.outputs.mix }}
-        run: selenium-side-runner -w 4 "yttest${{ steps.test.outputs.mix }}.side" --server https://mooghenchris:${{ secrets.LMD }}@hub.lambdatest.com/wd/hub -c "browserName='chrome' version='72.0' platform='Windows 10' resolution='1024x768'"
+        run: selenium-side-runner -w 4 "yttest${{ steps.test.outputs.mix }}.side" -c "browserName='chrome' version='72.0' platform='Windows 10' resolution='1024x768'"
       - run: |
          echo "`cat README.md` > 
          - `date` success v${{ steps.test.outputs.mix }} >
