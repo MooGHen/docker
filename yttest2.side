@@ -1,0 +1,63 @@
+{
+  "id": "df7690bb-c44a-4e84-8008-d1e234685f16",
+  "version": "2.0",
+  "name": "a",
+  "url": "",
+  "tests": [{
+    "id": "28809737-f55e-46e9-a62e-6156a688bfeb",
+    "name": "Untitled",
+    "commands": [{
+      "id": "ec178d4a-ed1e-4a41-8086-d9d8b200ea2e",
+      "comment": "",
+      "command": "open",
+      "target": "https://youtu.be/zEnefMkh3js",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9f5571e-468a-4045-926f-cad775d1c7c0",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1",
+      "targets": [],
+      "value": "check"
+    }, {
+      "id": "051093f1-cff7-4077-b2c4-c8ed0a49f546",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82585165-d207-426a-a340-2a40c4b9461d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${check}+1",
+      "targets": [],
+      "value": "check"
+    }, {
+      "id": "cc6bbb68-df88-429c-95c1-8477097c7c7c",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${check}<1400",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e681b454-0936-4047-aaa6-b337e968afbf",
+      "comment": "",
+      "command": "assert",
+      "target": "check",
+      "targets": [],
+      "value": "1400"
+    }]
+  }],
+  "suites": [{
+    "id": "6dee123f-7c98-4332-bc3a-3184b6a911ab",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["28809737-f55e-46e9-a62e-6156a688bfeb"]
+  }],
+  "urls": [],
+  "plugins": []
+}
