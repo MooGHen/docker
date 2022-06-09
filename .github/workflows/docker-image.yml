@@ -1,5 +1,7 @@
 # oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR
 name: Docker Image CHR
+env:
+  CHROMEWEBDRIVER: /usr/local/share/chrome_driver
 on:
   push:
     branches: [ "main" ]
