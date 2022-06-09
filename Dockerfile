@@ -5,4 +5,4 @@ RUN apt update -y
 RUN apt install git-core build-essential cmake qtbase5-dev libqt5x11extras5-dev libqt5xmlpatterns5-dev qtscript5-dev qttools5-dev qtmultimedia5-dev qttools5-dev-tools libnotify-dev libopencv-core-dev libopencv-imgproc-dev libxtst-dev libqt5sql5-mysql -y
 # Get the code  build
 RUN git clone https://github.com/Jmgr/actiona.git
-RUN cd actiona && mkdir build && cd build && cmake .. && make
+RUN cd actiona && mkdir build && cd build && cmake .. && make && mv ./actiona /usr/bin/actiona
