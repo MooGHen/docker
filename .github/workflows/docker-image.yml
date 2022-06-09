@@ -1,7 +1,5 @@
 # oi5z2Pw85yJEv1F5FkYNi9CqYkTHs7l6WLjsVnp4xFZOtmRQWR
 name: Docker Image CHR
-env:
-  CHROMEWEBDRIVER: /usr/local/share/chrome_driver
 on:
   push:
     branches: [ "main" ]
@@ -16,17 +14,19 @@ jobs:
         id: test
         run: echo "::set-output name=mix::`echo $((1 + $RANDOM % 7))`"
       - run: echo v${{ steps.test.outputs.mix }}
-      - run:  npm install -g selenium-side-runner
+      - run:  |
+         npm install -g selenium-side-runner
+         npm install -g chromedriver
       - name: v${{ steps.test.outputs.mix }}
         if: ${{ steps.test.outputs.mix }}
-        run: selenium-side-runner yttest${{ steps.test.outputs.mix }}.side
+        run: selenium-side-runner "yttest${{ steps.test.outputs.mix }}.side" --server http://localhost:4444/wd/hub -c "browserName=chrome"
       - run: |
          echo "`cat README.md` > 
          - `date` success v${{ steps.test.outputs.mix }} >
          " > README.md 
          git config --global user.name 'mooghen'
          git config --global user.email 'mooghenchris@proton.me'
-         git commit -am "Automated report succes test v${{ steps.test.outputs.mix }}"
+         git commit -am "Automated report succes test v${{ steps.test.outputs.mix }}" 
          git push
       - name: Automated report succes
         if: ${{ failure() }}
