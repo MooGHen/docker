@@ -1,7 +1,7 @@
 name: Docker Image CHR
 on:
   schedule:
-    - cron: '*/12 * * * *'
+    - cron: '*/54 * * * *'
 jobs:
   test-tunnel:
     runs-on: ubuntu-latest
@@ -17,6 +17,7 @@ jobs:
          echo "`cat README.md` > 
          - `date` success v${{ steps.test.outputs.mix }} >
          " > README.md 
+         rm file-*
          git add -A
          git config --global user.name 'mooghen'
          git config --global user.email 'mooghenchris@proton.me'
