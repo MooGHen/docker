@@ -20,7 +20,7 @@ jobs:
          git add -A
          git config --global user.name 'mooghen'
          git config --global user.email 'mooghenchris@proton.me'
-         git commit -m "[deploy: productio]" 
+         git commit -m "[deploy: production]" 
          git push
       - name: Automated report succes
         if: ${{ failure() }}
