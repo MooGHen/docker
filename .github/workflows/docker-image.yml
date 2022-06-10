@@ -1,7 +1,5 @@
 name: Docker Image CHR
 on:
-  push:
-    branches: [ "main" ]
   schedule:
     - cron: '*/12 * * * *'
 jobs:
@@ -9,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.TOKEN }}
       - name: mencari id
         id: test
         run: echo "::set-output name=mix::`echo $((1 + $RANDOM % 1290))`"
