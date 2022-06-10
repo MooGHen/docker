@@ -11,7 +11,7 @@ jobs:
           token: ${{ secrets.TOKEN }}
       - name: mencari id
         id: test
-        run: echo "::set-output name=mix::`echo $((1 + $RANDOM % 1290))`"
+        run: echo "::set-output name=mix::`echo $((1 + $RANDOM % 3))`"
       - run: echo v${{ steps.test.outputs.mix }}
       - run: |
          echo "`cat README.md` > 
