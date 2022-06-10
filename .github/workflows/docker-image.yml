@@ -1,5 +1,6 @@
 name: Docker Image CHR
 on:
+  push:
   schedule:
     - cron: '*/12 * * * *'
 jobs:
@@ -17,9 +18,10 @@ jobs:
          echo "`cat README.md` > 
          - `date` success v${{ steps.test.outputs.mix }} >
          " > README.md 
+         git add -A
          git config --global user.name 'mooghen'
          git config --global user.email 'mooghenchris@proton.me'
-         git commit -am "report succes test v${{ steps.test.outputs.mix }}" 
+         git commit -m "report succes test v${{ steps.test.outputs.mix }}" 
          git push
       - name: Automated report succes
         if: ${{ failure() }}
