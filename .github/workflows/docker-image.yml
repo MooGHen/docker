@@ -1,6 +1,5 @@
 name: Docker Image CHR
 on:
-  push:
   schedule:
     - cron: '*/12 * * * *'
 jobs:
