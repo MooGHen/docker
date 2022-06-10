@@ -1,0 +1,44 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/node:18.3.0
+    steps:
+      - run: |
+         curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+         echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+         sudo apt update -y
+         sudo apt install -y git gh
+      - run: echo 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 | gh auth login --with-token
+      - run: gh auth status
+      - run: |
+         mkdir a
+         cd a
+         git clone https://Arlentak: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@github.com/Arlentak/ted.git
+         cd ted
+         echo "`date`" > size
+         cat size
+         git init
+         git add .
+         git config --global user.name 'Arlentak'
+         git config --global user.email 'chriskm0116@gmail.com'
+         git commit -m "update code"
+         git push
+      - run: |
+         mkdir as
+         cd as
+         git clone https://Arlentak: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@github.com/Arlentak/sa.git
+         cd sa
+         echo "`date`" > size
+         cat size
+         git init
+         git add .
+         git config --global user.name 'Arlentak'
+         git config --global user.email 'chriskm0116@gmail.com'
+         git commit -m "update code"
+         git push
+workflows:
+  builds:
+    jobs:
+      - build
+      
