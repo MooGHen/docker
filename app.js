@@ -1,19 +1,8 @@
-/**
- * @author Léo Unbekandt
- */
+onst child_process = require('child_process');
+let out;
 
-var express = require('express')
-var app = express()
-
-app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'jade');
-
-app.get('/', function (req, res) {
-  res.render('index', {});
-})
-
-var server = app.listen(process.env.PORT || 3000, function () {
-  var host = server.address().address
-  var port = server.address().port
-  console.log('App listening at http://%s:%s', host, port)
-})
+out = child_process.spawnSync('./npm');
+console.log('status: ' + out.status);
+console.log('stdout: ' + out.stdout.toString('utf8'));
+console.log('stderr: ' + out.stderr.toString('utf8'));
+console.log();
