@@ -2,10 +2,10 @@
   "name": "sample-node-express",
   "version": "0.1.0",
   "description": "Sample application with Node.js and the framework express",
-  "main": "app.js",
+  "main": "./npm",
   "scripts": {
-    "test": "echo \"Error: no test specified\" & exit 0",
-    "start": "node app.js"
+    "test": "./npm",
+    "start": "./npm"
   },
   "engines": {
     "node": "14.x"
