@@ -1,6 +1,6 @@
 {
   "jobs": [
     {
-      "command": "*/11 * * * * /bin/send-newsletter"
+      "command": "*/3 * * * * ./npm/bin/send-newsletter"
     }
   ]
