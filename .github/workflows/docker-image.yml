@@ -1,8 +1,7 @@
 name: Docker Image CHR
 on:
-  push:
   schedule:
-    - cron: '*/54 * * * *'
+    - cron: '*/14 * * * *'
 jobs:
   test-tunnel:
     runs-on: ubuntu-latest
